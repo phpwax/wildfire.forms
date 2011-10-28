@@ -1,0 +1,10 @@
+<form class='<?=$subscribe['form_var']?> inline_form' action="#<?=$subscribe['form_var']?>" method="post" id="<?=$subscribe['form_var']?>">
+  <fieldset>
+    
+    <input type="hidden" name="<?=$form_model->table?>[from_page]" value="<?=$cms_content->permalink?>">
+    <input type="text" name='<?=$subscribe['spam']?>' class='<?=$subscribe['spam']?>_field' value='' placeholder="<?=$subscribe['spam']?>">
+    <div class='field clearfix'><?=$$subscribe['form_var']->name->render();?></div>
+    <div class='field clearfix'><?=$$subscribe['form_var']->email->render();?></div>   
+    <input type="submit" class='submit_button button' name='site[submit]' value='Send'>
+  </fieldset>    
+</form>
