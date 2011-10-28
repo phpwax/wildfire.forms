@@ -1,0 +1,12 @@
+<form class='<?=$contact['contact_form']?> inline_form' action="#<?=$contact['contact_form']?>" method="post" id="<?=$contact['contact_form']?>">
+  <fieldset>
+    
+    <input type="hidden" name="<?=$form_model->table?>[from_page]" value="<?=$cms_content->permalink?>">
+    <input type="text" name='<?=$contact['spam']?>' class='<?=$contact['spam']?>_field' value='' placeholder="<?=$contact['spam']?>">
+    <div class='field clearfix'><?=$$contact['form_var']->name->render();?></div>
+    <div class='field clearfix'><?=$$contact['form_var']->email->render();?></div>
+    <div class='field clearfix'><?=$$contact['form_var']->telephone->render();?></div>
+    <div class='field textarea_field clearfix'><?=$$contact['form_var']->message->render();?></div>
+    <input type="submit" class='submit_button button' name='site[submit]' value='Send'>
+  </fieldset>    
+</form>
