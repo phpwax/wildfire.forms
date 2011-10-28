@@ -1,5 +1,5 @@
 <?
-class WildfireCallback extends WaxModel{
+class WildfireContact extends WaxModel{
   
   public function setup(){
     $this->define("name", "CharField", array('scaffold'=>true));
