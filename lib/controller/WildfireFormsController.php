@@ -6,8 +6,13 @@ class WildfireFormsController extends ApplicationController{
                         "form_var" => "subscribe_form", //the variable name used on $this
                         "model_class" => "WildfireSubscribe",
                         "form_class" => "WaxForm",
-                        "email_class" => "WildfireFormNotify",
-                        "email_action" => "subscribe",
+                        "email"=>array(
+                                  "class" => "WildfireFormNotify",
+                                  "action"=>"subscribe",
+                                  "to"=>"x",
+                                  "from"=>"x",
+                                  "subject"=>"Subscription"
+                                  ),                      
                         "redirect_to" => "/thanks/subscribe/",
                         "spam" => "surname" //checks for a field in $_REQUEST with this name, if filled in, auto redirects
                         );
@@ -16,8 +21,13 @@ class WildfireFormsController extends ApplicationController{
                         "form_var" => "callback_form",
                         "model_class" => "WildfireCallback",
                         "form_class" => "WaxForm",
-                        "email_class" => "WildfireFormNotify",
-                        "email_action" => "callback",
+                        "email"=>array(
+                                  "class" => "WildfireFormNotify",
+                                  "action"=>"callback",
+                                  "to"=>"x",
+                                  "from"=>"x",
+                                  "subject"=>"Callback Request"
+                                  ),
                         "redirect_to" => "/thanks/callback/",
                         "spam" => "surname"
                         );
@@ -26,8 +36,13 @@ class WildfireFormsController extends ApplicationController{
                         "form_var" => "contact_form",
                         "model_class" => "WildfireContact",
                         "form_class" => "WaxForm",
-                        "email_class" => "WildfireFormNotify",
-                        "email_action" => "contact",
+                        "email"=>array(
+                                  "class" => "WildfireFormNotify",
+                                  "action"=>"contact",
+                                  "to"=>"x",
+                                  "from"=>"x",
+                                  "subject"=>"Contact Request"
+                                  ),
                         "redirect_to" => "/thanks/contact/",
                         "spam" => "surname"
                         );
@@ -46,9 +61,9 @@ class WildfireFormsController extends ApplicationController{
     $form = $this->{$config['form_var']} = new $config['form_class']($this->form_model = new $config['model_class']);
     if(strlen($_REQUEST[$config['spam']])) $this->redirect_to($config['redirect_to']."?s");
     else if($saved = $form->save()){
-      if(($notify_class = $config['email_class']) && ($action = $config['email_action'])){
+      if(($email = $config['email']) && ($notify_class = $email['class']) && ($action = $email['action'])){
         $notify = new $notify_class;
-        $notify->{"send_".$action}($saved);
+        $notify->{"send_".$action}($saved, $email);
       }
       $this->redirect_to($config['redirect_to']);
     }
