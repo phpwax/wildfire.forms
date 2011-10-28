@@ -1,4 +1,6 @@
-Provides WildfireForms & Forms Controllers, expected use of forms as partials:
+WildfireForms & Forms Controllers
+
+Expected use of forms as partials:
 
 <?=partial("forms/X", array('cms_content'=>$cms_content))?>
 
@@ -8,4 +10,11 @@ _callback
 _contact
 _subscribe
 
-Provides WildfireFormNotify to handle emails for the above. DOES NOT provide views for the emails.
+
+WildfireFormNotify
+
+Handle emails for the above. DOES NOT provide views for the emails.
+
+Admin Controllers
+
+CMS modules provided for each of built in forms
