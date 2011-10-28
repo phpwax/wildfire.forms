@@ -1,0 +1,10 @@
+<form class='<?=$callback['form_var']?> inline_form' action="#<?=$callback['form_var']?>" method="post" id="<?=$callback['form_var']?>">
+  <fieldset>
+    
+    <input type="hidden" name="<?=$form_model->table?>[from_page]" value="<?=$cms_content->permalink?>">
+    <input type="text" name='<?=$callback['spam']?>' class='<?=$callback['spam']?>_field' value='' placeholder="<?=$callback['spam']?>">
+    <div class='field clearfix'><?=$$callback['form_var']->name->render();?></div>
+    <div class='field clearfix'><?=$$callback['form_var']->telephone->render();?></div>   
+    <input type="submit" class='submit_button button' name='site[submit]' value='Send'>
+  </fieldset>    
+</form>
