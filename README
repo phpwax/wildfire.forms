@@ -1,0 +1,11 @@
+Provides WildfireForms & Forms Controllers, expected use of forms as partials:
+
+<?=partial("forms/X", array('cms_content'=>$cms_content))?>
+
+X is either an extension in your overwritten form controller or one of the built ins:
+
+_callback
+_contact
+_subscribe
+
+Provides WildfireFormNotify to handle emails for the above. DOES NOT provide views for the emails.
