@@ -43,7 +43,7 @@ class WildfireFormsController extends ApplicationController{
   }
 
   public function _handle_form($config){
-    $form = $this->{$config['form_var']} = new $config['form_class'](new $config['model_class']);
+    $form = $this->{$config['form_var']} = new $config['form_class']($this->form_model = new $config['model_class']);
     if(strlen($_REQUEST[$config['spam']])) $this->redirect_to($config['redirect_to']."?s");
     else if($saved = $form->save()){
       if(($notify_class = $config['email_class']) && ($action = $config['email_action'])){
