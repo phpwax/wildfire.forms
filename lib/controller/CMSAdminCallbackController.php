@@ -1,7 +1,5 @@
 <?php
-/**
- * admin section for categories - inherits methods from admin component
- */
+
 
 class CMSAdminCallbackController extends AdminComponent {
 
