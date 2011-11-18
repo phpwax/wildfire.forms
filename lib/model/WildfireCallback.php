@@ -3,7 +3,7 @@ class WildfireCallback extends WaxModel{
   
   public function setup(){
     $this->define("name", "CharField", array('scaffold'=>true));
-    $this->define("telephone", "EmailField", array('scaffold'=>true, 'required'=>true));
+    $this->define("telephone", "CharField", array('scaffold'=>true, 'required'=>true));
     $this->define("from_page", "CharField", array('editable'=>false));
     $this->define("ip", "CharField", array('editable'=>false));
     $this->define("occurred", "CharField", array('editable'=>false, 'scaffold'=>true));
